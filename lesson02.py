@@ -73,7 +73,7 @@ print(goods)
 new_dict = {}
 for g in goods:
     for key_g, value_g in g[1].items():
-        if new_dict.get(key_g):
+        if 'key_g' in new_dict:
             new_dict[key_g].append(value_g)
         else:
             new_dict[key_g] = [value_g]
