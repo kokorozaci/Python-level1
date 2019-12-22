@@ -48,7 +48,7 @@ words = my_str.split()
 for i, word in enumerate(words, start=1):
     print(i, word if len(word) <=10 else word[:10])
 
-# Задание 5
+# # Задание 5
 
 my_list = [7, 5, 3, 3, 2]
 new_number = int(input('Введите целое натуральное число\n--> '))
@@ -73,7 +73,7 @@ print(goods)
 new_dict = {}
 for g in goods:
     for key_g, value_g in g[1].items():
-        if 'key_g' in new_dict:
+        if key_g in new_dict:
             new_dict[key_g].append(value_g)
         else:
             new_dict[key_g] = [value_g]
