@@ -17,6 +17,11 @@ for i in range(0, len(u_list), 2):
     new_list.append(u_list[i+1] if i+1 != len(u_list) else u_list[i])
     new_list.append(u_list[i]) if i+1 != len(u_list) else new_list
 print(new_list)
+# var 2
+for i in range(0, len(u_list), 2):
+    if i+1 < len(u_list):
+        u_list[i], u_list[i + 1] = u_list[i + 1], u_list[i]
+print(u_list)
 
 # Задание 3
 
@@ -54,6 +59,15 @@ my_list = [7, 5, 3, 3, 2]
 new_number = int(input('Введите целое натуральное число\n--> '))
 my_list.append(new_number)
 print(sorted(my_list, reverse=True))
+# var 2
+for el in my_list[:]:
+    if new_number > el:
+        my_list.insert(my_list.index(el), new_number)
+        break
+    elif new_number < my_list[-1]:
+        my_list.append(new_number)
+        break
+print(my_list)
 
 # Задание 6
 
