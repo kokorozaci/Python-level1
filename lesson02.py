@@ -18,9 +18,8 @@ for i in range(0, len(u_list), 2):
     new_list.append(u_list[i]) if i+1 != len(u_list) else new_list
 print(new_list)
 # var 2
-for i in range(0, len(u_list), 2):
-    if i+1 < len(u_list):
-        u_list[i], u_list[i + 1] = u_list[i + 1], u_list[i]
+for i in range(1, len(u_list), 2):
+    u_list[i-1], u_list[i] = u_list[i], u_list[i-1]
 print(u_list)
 
 # Задание 3
