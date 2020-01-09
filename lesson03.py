@@ -46,11 +46,15 @@ print(f'Сумма 2-х наибольших чисел: {summ}')
 
 a = float(input('Введите действительное число: '))
 n = int(input('Введите отрицательное целое число - степень: '))
-print(a**n)
-b=a
-for i in range(n, -1):
-    b = b*a
-print(1/b)
+def my_func(x, y):
+    return x**y
+print(my_func(a, n))
+def my_func(x, y):
+    b=x
+    for i in range(y, -1):
+        b = b*x
+    return 1/b
+print(my_func(a, n))
 
 # Задание 5
 
