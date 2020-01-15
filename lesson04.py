@@ -29,11 +29,11 @@ print(reduce(lambda x, y: x*y, new))
 
 # Задание 6
 
-def fibo_gen():
+def fibo_gen(stop):
     x = 1
-    for n in range(1, 16):
+    for n in range(1, stop):
         x *= n
         yield x
 
-for n in fibo_gen():
+for n in fibo_gen(15):
     print(n)
