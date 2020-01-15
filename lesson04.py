@@ -31,7 +31,7 @@ print(reduce(lambda x, y: x*y, new))
 
 def fibo_gen(stop):
     x = 1
-    for n in range(1, stop):
+    for n in range(1, stop+1):
         x *= n
         yield x
 
