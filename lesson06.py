@@ -21,13 +21,17 @@ class TrafficLight:
             print('Green ...')
             time.sleep(5)
         else:
-            print('Ошибка последовательности')
+            raise Exception('Неверная последовательность сигналов')
+            # print('Ошибка последовательности')
 
 light = TrafficLight()
 light.runing('red')
 light.runing('yellow')
 light.runing('green')
-light.runing('yellow')
+try:
+    light.runing('yellow')
+except Exception as e:
+    print(e)
 
 """ Задание 2 """
 
@@ -36,11 +40,11 @@ class Road:
         self._length = lenght
         self._width = widh
 
-    def mass_asfalt(self, mass, cm):
-        return self._length*self._length*mass*cm
+    def mass_asfalt(self, mass = 25, cm = 5):
+        return self._length*self._length*mass*cm/1000
 
 road = Road(20, 5000)
-print(f'Масса асфальта: {road.mass_asfalt(25, 5)} кг.')
+print(f'Масса асфальта: {road.mass_asfalt(30, 6)} т.')
 
 """ Задание 3 """
 
