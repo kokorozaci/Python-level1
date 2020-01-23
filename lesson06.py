@@ -84,8 +84,11 @@ class Car:
         print(self.speed)
 
 class TownCar(Car):
+    def __init__(self, speed, color, name):
+        super().__init__(speed, color, name)
+        self._speed_limit = 60
     def show_speed(self):
-        if self.speed > 60:
+        if self.speed > self._speed_limit:
             print('Превышение скорости')
         else:
             print(self.speed)
@@ -93,8 +96,11 @@ class TownCar(Car):
 class SportCar(Car):
     pass
 class WorkCar(Car):
+    def __init__(self, speed, color, name):
+        super().__init__(speed, color, name)
+        self._speed_limit = 40
     def show_speed(self):
-        if self.speed > 40:
+        if self.speed > self._speed_limit:
             print('Превышение скорости')
         else:
             print(self.speed)
@@ -103,10 +109,16 @@ class PoliceCar(Car):
         super().__init__(speed, color, name)
         self.is_police = True
 
+    def inspection(self, car):
+        if car._speed_limit:
+            if car.speed > car._speed_limit:
+                print('Остоновитесь, Вы превысили скорость ...')
+
 sport = SportCar(90, 'red', 'ferrari')
 police = PoliceCar(120, 'blue', 'police')
 work = WorkCar(40, 'yellow', 'трактор')
 town = TownCar(70, 'green', 'renoult')
+police.inspection(town)
 town.go()
 town.turn('left')
 town.stop()
@@ -144,3 +156,24 @@ pen.draw()
 pencil.draw()
 handle.draw()
 print(handle.title)
+
+""" Дополнительно. Хотела проверить как ведёт себя метод 
+который активируется в __init__ и как его выключить"""
+
+class ListGenerator:
+    def __init__(self):
+        self.list = []
+        self.add_tolist()
+        print(f'Проверка списка  {self.list}')
+
+    def add_tolist(self):
+        self.list = [i*2 for i in range(25)]
+
+class NullList(ListGenerator):
+    def add_tolist(self):
+        pass
+
+null = NullList()
+print(null.list)
+full = ListGenerator()
+print(full.list)
