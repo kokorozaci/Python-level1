@@ -22,8 +22,7 @@ class Matrix:
         for i in range(len(self.list)):
             assert len(self.list[i]) == len(other.list[i])
             sum_m.append([(self.list[i][j]+other.list[i][j]) for j in range(len(self.list[i]))])
-        new_m = Matrix(sum_m)
-        return new_m
+        return Matrix(sum_m)
 
 
 m = Matrix([[1, 122, 8],[5, 3, 4]])
